@@ -1,0 +1,27 @@
+<p>
+  {{ciudades | json}}
+</p>
+
+<p>
+   ciudad  {{ciudad | json}}
+  </p>
+<div>
+    <form novalidate [formGroup]="ciudadForm" (ngSubmit)="onSubmit()">
+            <mat-form-field class="half-width">
+              <input matInput formControlName="nombre" placeholder="Nombre" type="text" required>
+            </mat-form-field>
+            <table class="form-size">
+                <td>
+                  <mat-slide-toggle formControlName="capital">Es ciudad Capital?</mat-slide-toggle>
+                </td>
+                <td>
+                  <mat-select placeholder="Pais" formControlName="idpais">
+                    <mat-option  [value]="idpais">
+                      {{ 1 }}
+                    </mat-option>
+                  </mat-select>
+                </td>
+                </table>
+                <button type="submit" mat-button class="background-primary text-floral-white">Submit</button>
+    </form>
+</div>
