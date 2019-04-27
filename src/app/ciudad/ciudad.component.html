@@ -1,23 +1,35 @@
 <p>
   {{ciudades | json}}
 </p>
-
+<div>
+    <table class="form-size">
+      <tr><td>ID</td><td>Nombre</td><td>Capital</td><td>Pais</td></tr>
+      <tr *ngFor="let ciudad of ciudades">
+        <td>{{ciudad.Id}}</td>
+        <td>{{ciudad.Nombre}}</td>
+        <td>{{ciudad.Capital}}</td>
+        <td>{{ciudad.PaisId.Nombre}}</td>
+        <td><button mat-button class="background-primary text-floral-white"
+          (click)='onDelete(ciudad.PaisId.Id)'>Borrar</button></td>
+      </tr>
+    </table>
+</div>
 <p>
    ciudad  {{ciudad | json}}
   </p>
 <div>
     <form novalidate [formGroup]="ciudadForm" (ngSubmit)="onSubmit()">
             <mat-form-field class="half-width">
-              <input matInput formControlName="nombre" placeholder="Nombre" type="text" required>
+              <input matInput formControlName="Nombre" placeholder="Nombre" type="text" required>
             </mat-form-field>
             <table class="form-size">
                 <td>
-                  <mat-slide-toggle formControlName="capital">Es ciudad Capital?</mat-slide-toggle>
+                  <mat-slide-toggle formControlName="Capital">Es ciudad Capital?</mat-slide-toggle>
                 </td>
                 <td>
-                  <mat-select placeholder="Pais" formControlName="idpais">
-                    <mat-option  [value]="idpais">
-                      {{ 1 }}
+                  <mat-select placeholder="Pais" formControlName="PaisId">
+                    <mat-option *ngFor="let pais of paises" [(value)]="pais.Id">
+                      {{pais.Id}}
                     </mat-option>
                   </mat-select>
                 </td>

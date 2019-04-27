@@ -17,6 +17,7 @@ import { DynamicFormModule } from 'ngx-dynamic-form';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule, MatInputModule, MatCheckboxModule, MatSelectModule, MatSlideToggleModule } from '@angular/material';
+import 'hammerjs';
 
 @NgModule({
   declarations: [
