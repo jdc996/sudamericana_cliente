@@ -31,12 +31,14 @@ post(endpoint, element) {
 }
 
 put(endpoint, element) {
+    console.log(element.Id);
     return this.http.put(path + endpoint + '/' + element.Id, element, httpOptions).pipe(
       catchError(this.handleError),
     );
 }
 
 delete(endpoint, element) {
+    console.log(path + endpoint + '/' + element.Id)
     return this.http.delete(path + endpoint + '/' + element.Id, httpOptions).pipe(
       catchError(this.handleError),
     );}

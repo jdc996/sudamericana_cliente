@@ -1,3 +1,30 @@
+<div>
+  <table class="form-size">
+    <tr><th>ID</th><th>Nombre</th></tr>
+    <tr *ngFor="let fpais of paises">
+      <td>{{fpais.Id}}</td>
+      <td>{{fpais.Nombre}}</td>
+      <td><button mat-button class="background-primary text-floral-white"
+        (click)='onDelete(fpais)'>Borrar</button></td>
+      <td><button mat-button class="background-primary text-floral-white"
+          (click)='onSelect(fpais)'>Seleccionar</button></td>
+      
+        
+    </tr>
+  </table>
+</div>
 <p>
-  pais works!
+ pais  {{pais | json}}
 </p>
+<div>
+  <form novalidate [formGroup]="paisForm" (ngSubmit)="onSubmit()">
+          <mat-form-field class="half-width">
+            <input matInput formControlName="Nombre" placeholder="Nombre" type="text" required>
+          </mat-form-field>
+              <button type="submit" mat-button [disabled]="actualizando" [hidden]="actualizando" 
+              class="background-primary text-floral-white">Submit</button>       
+  </form>
+  <button (click)="onUpdate()" [hidden]="!actualizando" 
+        [disabled]="!actualizando" mat-button 
+        class="background-primary text-floral-white">Update</button>
+</div>

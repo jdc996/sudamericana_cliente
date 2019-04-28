@@ -1,16 +1,20 @@
-<p>
+<!-- <p>
   {{ciudades | json}}
-</p>
+</p> -->
 <div>
     <table class="form-size">
-      <tr><td>ID</td><td>Nombre</td><td>Capital</td><td>Pais</td></tr>
-      <tr *ngFor="let ciudad of ciudades">
-        <td>{{ciudad.Id}}</td>
-        <td>{{ciudad.Nombre}}</td>
-        <td>{{ciudad.Capital}}</td>
-        <td>{{ciudad.PaisId.Nombre}}</td>
+      <tr><th>ID</th><th>Nombre</th><th>Capital</th><th>Pais</th></tr>
+      <tr *ngFor="let fciudad of ciudades">
+        <td>{{fciudad.Id}}</td>
+        <td>{{fciudad.Nombre}}</td>
+        <td>{{fciudad.Capital}}</td>
+        <td>{{fciudad.PaisId.Nombre}}</td>
         <td><button mat-button class="background-primary text-floral-white"
-          (click)='onDelete(ciudad.PaisId.Id)'>Borrar</button></td>
+          (click)='onDelete(fciudad)'>Borrar</button></td>
+        <td><button mat-button class="background-primary text-floral-white"
+            (click)='onSelect(fciudad)'>Seleccionar</button></td>
+        
+          
       </tr>
     </table>
 </div>
@@ -34,6 +38,10 @@
                   </mat-select>
                 </td>
                 </table>
-                <button type="submit" mat-button class="background-primary text-floral-white">Submit</button>
+                <button type="submit" mat-button [disabled]="actualizando" [hidden]="actualizando" 
+                class="background-primary text-floral-white">Submit</button>       
     </form>
+    <button (click)="onUpdate()" [hidden]="!actualizando" 
+          [disabled]="!actualizando" mat-button 
+          class="background-primary text-floral-white">Update</button>
 </div>
