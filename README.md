@@ -1,5 +1,11 @@
 # CiudadesCliente
 
+cliente desarrollado en angular para el ejemplo de ciudades y paises de la capacitacion de la oas, permite conectarse al [CRUD](https://github.com/CarlosGutierrezArdila/ciudades_oas_crud/tree/dev) desarrollado para conectarse con la BD postgres.
+
+### requisitos
+- tener instalado y corriendo el servidor del [CRUD](https://github.com/CarlosGutierrezArdila/ciudades_oas_crud/tree/dev)
+- instalacion de angular para correr el proyecto con las instrucciones descritas a continuacion
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.5.
 
 ## Development server
