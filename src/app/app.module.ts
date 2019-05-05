@@ -18,6 +18,8 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule, MatInputModule, MatCheckboxModule, MatSelectModule, MatSlideToggleModule } from '@angular/material';
 import 'hammerjs';
+import { PartidosComponent } from './partidos/partidos.component';
+import { PartidosService } from './services/partidos.service';
 
 @NgModule({
   declarations: [
@@ -25,6 +27,7 @@ import 'hammerjs';
     HeaderComponent,
     CiudadComponent,
     PaisComponent,
+    PartidosComponent
   ],
   imports: [
    
@@ -46,6 +49,7 @@ import 'hammerjs';
   providers: [
     PaisService,
     CiudadService,
+    PartidosService,
     {provide: 'BaseURL', useValue: baseURL}],
 
   bootstrap: [AppComponent]

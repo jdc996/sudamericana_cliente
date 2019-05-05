@@ -1,0 +1,49 @@
+<div>
+  <table class="form-size">
+    <tr><th>ID</th><th>Fecha</th><th>Equipo Local Id</th><th>Equipo Visitante Id</th>
+    <th>Goles local </th> <th>Goles Visitante</th>
+
+    </tr>
+    <tr *ngFor="let fpais of paises">
+      <td>{{fpais.Id}}</td>
+      <td>{{fpais.Fecha}}</td>
+      <td>{{fpais.EquipoLocalId}}</td>
+      <td>{{fpais.EquipoVisitanteId}}</td>
+      <td>{{fpais.GolesLocal}}</td>
+      <td>{{fpais.GolesVisitante}}</td>
+      <td><button mat-button class="background-primary text-floral-white"
+        (click)='onDelete(fpais)'>Borrar</button></td>
+      <td><button mat-button class="background-primary text-floral-white"
+          (click)='onSelect(fpais)'>Seleccionar</button></td>
+      
+        
+    </tr>
+  </table>
+</div>
+<p>
+ pais  {{pais | json}}
+</p>
+<div>
+  <form novalidate [formGroup]="paisForm" (ngSubmit)="onSubmit()">
+          <mat-form-field class="half-width">
+            <input matInput formControlName="Fecha" placeholder="Fecha" type="datetime" required>
+          </mat-form-field>
+          <mat-form-field class="half-width">
+            <input matInput formControlName="EquipoLocalId" placeholder="Equipo local id" type="number" required>
+          </mat-form-field>
+          <mat-form-field class="half-width">
+            <input matInput formControlName="EquipoVisitanteId" placeholder="Equipo Visitante id" type="number" required>
+          </mat-form-field>
+          <mat-form-field class="half-width">
+            <input matInput formControlName="GolesLocal" placeholder="Goles local" type="number" required>
+          </mat-form-field>
+          <mat-form-field class="half-width">
+            <input matInput formControlName="GolesVisitante" placeholder="Goles visitante" type="number" required>
+          </mat-form-field>
+              <button   type="submit" mat-button [disabled]="actualizando" [hidden]="actualizando" 
+              class="background-primary text-floral-white">Submit</button>       
+  </form>
+  <button (click)="onUpdate()" [hidden]="!actualizando" 
+        [disabled]="!actualizando" mat-button 
+        class="background-primary text-floral-white">Update</button>
+</div>
