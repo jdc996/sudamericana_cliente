@@ -4,27 +4,27 @@
     <th>Goles local </th> <th>Goles Visitante</th>
 
     </tr>
-    <tr *ngFor="let fpais of paises">
-      <td>{{fpais.Id}}</td>
-      <td>{{fpais.Fecha}}</td>
-      <td>{{fpais.EquipoLocalId}}</td>
-      <td>{{fpais.EquipoVisitanteId}}</td>
-      <td>{{fpais.GolesLocal}}</td>
-      <td>{{fpais.GolesVisitante}}</td>
+    <tr *ngFor="let fpartido of partidos">
+      <td>{{fpartido.Id}}</td>
+      <td>{{fpartido.Fecha}}</td>
+      <td>{{fpartido.EquipoLocalId}}</td>
+      <td>{{fpartido.EquipoVisitanteId}}</td>
+      <td>{{fpartido.GolesLocal}}</td>
+      <td>{{fpartido.GolesVisitante}}</td>
       <td><button mat-button class="background-primary text-floral-white"
-        (click)='onDelete(fpais)'>Borrar</button></td>
+        (click)='onDelete(fpartido)'>Borrar</button></td>
       <td><button mat-button class="background-primary text-floral-white"
-          (click)='onSelect(fpais)'>Seleccionar</button></td>
+          (click)='onSelect(fpartido)'>Seleccionar</button></td>
       
         
     </tr>
   </table>
 </div>
 <p>
- pais  {{pais | json}}
+ partido  {{partido | json}}
 </p>
 <div>
-  <form novalidate [formGroup]="paisForm" (ngSubmit)="onSubmit()">
+  <form novalidate [formGroup]="partidoForm" (ngSubmit)="onSubmit()">
           <mat-form-field class="half-width">
             <input matInput formControlName="Fecha" placeholder="Fecha" type="datetime" required>
           </mat-form-field>

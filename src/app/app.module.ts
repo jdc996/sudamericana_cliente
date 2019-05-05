@@ -21,6 +21,8 @@ import 'hammerjs';
 import { PartidosComponent } from './partidos/partidos.component';
 import { PartidosService } from './services/partidos.service';
 import { PosicionComponent } from './posicion/posicion.component';
+import { EquiposComponent } from './equipos/equipos.component';
+import { EquipoService } from './services/equipos.service';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,8 @@ import { PosicionComponent } from './posicion/posicion.component';
     CiudadComponent,
     PaisComponent,
     PartidosComponent,
-    PosicionComponent
+    PosicionComponent,
+    EquiposComponent
   ],
   imports: [
    
@@ -52,6 +55,7 @@ import { PosicionComponent } from './posicion/posicion.component';
     PaisService,
     CiudadService,
     PartidosService,
+    EquipoService,
     {provide: 'BaseURL', useValue: baseURL}],
 
   bootstrap: [AppComponent]

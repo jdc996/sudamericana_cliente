@@ -9,42 +9,24 @@ import { PosicionService } from '../services/posicion.service';
   styleUrls: ['./posicion.component.scss']
 })
 export class PosicionComponent implements OnInit {
-  paises: Posicion[];
-  paisForm: FormGroup;
-  pais: Posicion;
+  posiciones: Posicion[];
+  
+  posicion: Posicion;
   actualizando: boolean=false;
 
   constructor(
-    private paisService: PosicionService,
-    private fb: FormBuilder
-  ) { 
-    this.createForm();
-  }
+    private paisService: PosicionService
+   
+  ) {}
 
   ngOnInit() {this.loadData();
   }
 
-  createForm() {
-    this.paisForm = this.fb.group({
-      
-      Fecha: '',
-      EquipoLocalId: 0,
-      EquipoVisitanteId:0,
-      GolesLocal:0,
-      GolesVisitante:0
-    });
-
-    this.paisForm.valueChanges
-    .subscribe(data => this.onValueChanged(data));
-  }
-  onValueChanged(data?: any) {
-    if (!this.paisForm) { return; }
-    const form = this.paisForm;
-  }
+  
 
   loadData(){
     this.paisService.get('posicion/?sortby=Puntaje&order=desc')
-    .subscribe((paises) => this.paises=<Posicion[]>paises);
+    .subscribe((paises) => this.posiciones=<Posicion[]>paises);
   }
 
 

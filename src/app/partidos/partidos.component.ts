@@ -9,9 +9,9 @@ import { PartidosService } from '../services/partidos.service';
   styleUrls: ['./partidos.component.scss']
 })
 export class PartidosComponent implements OnInit {
-  paises: Partidos[];
-  paisForm: FormGroup;
-  pais: Partidos;
+  partidos: Partidos[];
+  partidoForm: FormGroup;
+  partido: Partidos;
   actualizando: boolean=false;
 
   constructor(
@@ -25,7 +25,7 @@ export class PartidosComponent implements OnInit {
   }
 
   createForm() {
-    this.paisForm = this.fb.group({
+    this.partidoForm = this.fb.group({
       
       Fecha: '',
       EquipoLocalId: 0,
@@ -34,18 +34,18 @@ export class PartidosComponent implements OnInit {
       GolesVisitante:0
     });
 
-    this.paisForm.valueChanges
+    this.partidoForm.valueChanges
     .subscribe(data => this.onValueChanged(data));
   }
   onSubmit(){
-    this.pais=this.paisForm.value;
-    this.paisService.post('partidos/registrarPartido',JSON.stringify(this.pais))
+    this.partido=this.partidoForm.value;
+    this.paisService.post('partidos/registrarPartido',JSON.stringify(this.partido))
     .subscribe((pais)=> {
         alert('partido insertado con exito:'+JSON.stringify(pais));
         this.loadData();
     });
-    console.log(this.pais);
-    this.paisForm.reset();
+    console.log(this.partido);
+    this.partidoForm.reset();
   }
 
   onDelete(pais){
@@ -56,35 +56,35 @@ export class PartidosComponent implements OnInit {
 
   onSelect(pais){
     this.actualizando=true;
-    this.paisForm.setValue({
+    this.partidoForm.setValue({
       Nombre: pais.Nombre
     });
-    this.pais=pais;
-    this.pais.Id=pais.Id;
+    this.partido=pais;
+    this.partido.Id=pais.Id;
   }
 
   onUpdate(){
-    let tempId=this.pais.Id;
-    this.pais=this.paisForm.value;
-    this.pais.Id=tempId;
-    console.log(JSON.stringify(this.pais));
-    this.paisService.put('partido',JSON.stringify(this.pais))
+    let tempId=this.partido.Id;
+    this.partido=this.partidoForm.value;
+    this.partido.Id=tempId;
+    console.log(JSON.stringify(this.partido));
+    this.paisService.put('partido',JSON.stringify(this.partido))
       .subscribe((pais)=> {
         alert('partido actualizado con exito:'+JSON.stringify(pais));
         this.loadData();
     }); 
-    this.paisForm.reset();
+    this.partidoForm.reset();
     this.actualizando=false;
   }
 
   onValueChanged(data?: any) {
-    if (!this.paisForm) { return; }
-    const form = this.paisForm;
+    if (!this.partidoForm) { return; }
+    const form = this.partidoForm;
   }
 
   loadData(){
     this.paisService.get('partidos/')
-    .subscribe((paises) => this.paises=<Partidos[]>paises);
+    .subscribe((paises) => this.partidos=<Partidos[]>paises);
   }
 
 

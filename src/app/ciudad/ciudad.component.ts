@@ -35,7 +35,7 @@ export class CiudadComponent implements OnInit {
   createForm() {
     this.ciudadForm = this.fb.group({
       Nombre: '',
-      PaisId: null
+      PaisId: 0
     });
 
     this.ciudadForm.valueChanges
