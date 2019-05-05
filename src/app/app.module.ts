@@ -20,6 +20,7 @@ import { MatFormFieldModule, MatInputModule, MatCheckboxModule, MatSelectModule,
 import 'hammerjs';
 import { PartidosComponent } from './partidos/partidos.component';
 import { PartidosService } from './services/partidos.service';
+import { PosicionComponent } from './posicion/posicion.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { PartidosService } from './services/partidos.service';
     HeaderComponent,
     CiudadComponent,
     PaisComponent,
-    PartidosComponent
+    PartidosComponent,
+    PosicionComponent
   ],
   imports: [
    

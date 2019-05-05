@@ -3,11 +3,10 @@
 </p> -->
 <div>
     <table class="form-size">
-      <tr><th>ID</th><th>Nombre</th><th>Capital</th><th>Pais</th></tr>
+      <tr><th>ID</th><th>Nombre</th><th>Pais</th></tr>
       <tr *ngFor="let fciudad of ciudades">
         <td>{{fciudad.Id}}</td>
         <td>{{fciudad.Nombre}}</td>
-        <td>{{fciudad.Capital}}</td>
         <td>{{fciudad.PaisId.Nombre}}</td>
         <td><button mat-button class="background-primary text-floral-white"
           (click)='onDelete(fciudad)'>Borrar</button></td>
@@ -26,18 +25,7 @@
             <mat-form-field class="half-width">
               <input matInput formControlName="Nombre" placeholder="Nombre" type="text" required>
             </mat-form-field>
-            <table class="form-size">
-                <td>
-                  <mat-slide-toggle formControlName="Capital">Es ciudad Capital?</mat-slide-toggle>
-                </td>
-                <td>
-                  <mat-select placeholder="Pais" formControlName="PaisId">
-                    <mat-option *ngFor="let pais of paises" [(value)]="pais.Id">
-                      {{pais.Id}}
-                    </mat-option>
-                  </mat-select>
-                </td>
-                </table>
+            
                 <button type="submit" mat-button [disabled]="actualizando" [hidden]="actualizando" 
                 class="background-primary text-floral-white">Submit</button>       
     </form>

@@ -35,7 +35,6 @@ export class CiudadComponent implements OnInit {
   createForm() {
     this.ciudadForm = this.fb.group({
       Nombre: '',
-      Capital: false,
       PaisId: null
     });
 

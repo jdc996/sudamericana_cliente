@@ -1,0 +1,24 @@
+<div>
+  <table class="form-size">
+    <tr><th>Puntaje</th><th>Equipo Id</th><th>Partidos Jugados</th>
+    <th>Partidos Ganados </th> <th>Partidos Empatados</th>
+    <th>Partidos Perdidos</th><th>Goles A Favor</th><th>Goles En Contra</th>
+    <th>Diferencia Goles </th>
+
+    </tr>
+    <tr *ngFor="let fpais of paises">
+      
+      <td>{{fpais.Puntaje}}</td>
+      <td>{{fpais.EquipoId}}</td>
+      <td>{{fpais.PartidosJugados}}</td>
+      <td>{{fpais.PartidosGanados}}</td>
+      <td>{{fpais.PartidosEmpatados}}</td>
+      <td>{{fpais.PartidosPerdidos}}</td>
+      <td>{{fpais.GolesFavor}}</td>
+      <td>{{fpais.GolesContra}}</td>
+      <td>{{fpais.DiferenciaGoles}}</td>
+      
+        
+    </tr>
+  </table>
+</div>
